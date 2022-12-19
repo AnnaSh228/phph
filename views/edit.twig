@@ -1,0 +1,42 @@
+{% extends "__layout.twig" %}
+{% block content %}
+{% include 'navigation.html.twig' %}
+<h1 style="margin-left:300;">Редактирование кота/кошки</h1>
+{% if message %}
+	<div class="alert alert-info" style="margin-left:150px;margin-right:150px;">
+		{{message}}
+		
+	</div>
+{% endif %}
+
+	<form action="" enctype="multipart/form-data" method="POST" class="row g-3" style="margin-left:150px;">
+		<div class="col-4">
+			<label class="form-label">Имя</label>
+			<input type="text" class="form-control" name="title" value="{{object.title}}">
+		</div>
+		<div class="col-4">
+			<label class="form-label">Краткое описание</label>
+			<input type="text" class="form-control" name="description" value="{{object.description}}">
+		</div>
+		<div class="col-4">
+			<label class="form-label">Тип</label><br>
+			<select name="type">
+				{% for type in types %}
+					<option value="{{type.type}}">{{ type.type|title }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col-10">
+			<textarea name="info" placeholder="Описание" class="form-control" rows="5">{{ object.info }}</textarea>
+		</div>
+
+		<div class="col-4">
+			<label class="form-label"></label>
+			<input class="form-control" type="file" name="image" value="{{object.image}}">
+		</div>
+		<div class="col-auto">
+			<button type="submit">Редактировать</button>
+		</div>
+	</form>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "__layout.twig" %}
+{% block content %}
+	{% include 'navigation.html.twig' %}
+	<h1 style="margin-left:300;">Добавление кота/кошки</h1>
+
+	{% if message %}
+		<div class="alert alert-info" style="margin-left:150px;margin-right:150px;">
+
+			{{message}}
+			<a href="/cat-object/{{id}}">Открыть новый объект
+			</a>
+		</div>
+	{% endif %}
+	<form action="" enctype="multipart/form-data" method="POST" class="row g-3" style="margin-left:150px;">
+		<div class="col-4">
+			<label class="form-label">Имя</label>
+			<input type="text" class="form-control" name="title">
+		</div>
+		<div class="col-4">
+			<label class="form-label">Краткое описание</label>
+			<input type="text" class="form-control" name="description">
+		</div>
+		<div class="col-4">
+			<label class="form-label">Тип</label><br>
+			<select name="type">
+				{% for type in types %}
+					<option value="{{type.type}}">{{ type.type|title }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="col-10">
+			<textarea name="info" placeholder="Описание" class="form-control" rows="5">{{cat.info}}</textarea>
+		</div>
+
+		<div class="col-4">
+			<label class="form-label"></label>
+			<input class="form-control" type="file" name="image">
+		</div>
+		<div class="col-auto">
+			<button type="submit">Добавить</button>
+		</div>
+	</form>
+
+
+	<style>
+		select {
+
+			padding: 10px;
+			border-radius: 10px;
+		}
+		input {
+			padding: 10px;
+			border-radius: 10px;
+			box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+		}
+		button {
+			position: absolute;
+			top: 0;
+
+			width: 100px;
+			height: 42px;
+			border: none;
+			background: #000;
+			border-radius: 0 5px 5px 0;
+			cursor: pointer;
+			color: white;
+		}
+		button:active {
+
+
+			color: #F2C64D;
+		}
+	</style>
+{% endblock %}

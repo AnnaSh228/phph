@@ -1,0 +1,10 @@
+{% macro btn(text,url,active) %}
+
+	{% if active %}
+		<a href="{{url}}" class="boxed-btn4">
+			{{text}}</a>
+	{% else %}
+		<a href="{{url}}" class="boxed-btn4">
+			{{text}}</a>
+	{% endif %}
+{% endmacro %}

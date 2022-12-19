@@ -1,0 +1,32 @@
+{% extends "__layout.twig" %}
+
+{% import "macro.twig" as macro %}
+{% block content %}
+
+
+	{% include 'navigation.html.twig' %}
+
+	<div class="col-1 d-flex flex-column justify-content-space-between align-items-center">
+
+		<div class="info">
+			<a href="/cat-object/{{cat.id}}?show=image">Картинка</a>
+		</div>
+
+		<a href="/cat-object/{{cat.id}}?show=info">Описание</a>
+
+	</div>
+		<div class="col-2 m-5 d-flex" >
+			Посещенные страницы
+			{# {{my_session_message}} #}
+			<br>
+			{% for m in history %}
+				{{m}}
+				<br>
+			{% endfor %}
+			<hr>
+		</div>
+
+</div>
+
+
+{% block objectContent %}{% endblock %}{% endblock %}

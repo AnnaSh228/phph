@@ -1,0 +1,70 @@
+{% extends "__layout.twig" %}
+{% import "macro.twig" as macro %}
+
+{% block content %}
+	{% include 'navigation.html.twig' %}
+	<h1 style="margin-left:300px;">Поиск</h1>
+	<form class="row gx-3 gy-2 align-items-center" style="margin-left:280px;">
+		<div class="col-sm-3">
+			<input type="text" value="{{title}}" placeholder="Введите имя">
+		</div>
+		<div class="col-sm-3">
+			<input type="text" value="{{info}}" placeholder="Описание">
+		</div>
+		<div class="col-sm-3">
+
+			<select name="type">
+				<option value="All">All</option>
+				{% for type in types %}
+					<option value="{{type.type}}">{{ type.type|title }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div class="col-auto">
+			<button type="submit">Найти</button>
+		</div>
+
+	</form>
+
+	<div class="list-group mt-4 col-3">
+		{% for object in objects %}
+			<a href="/cat-object/{{object.id}}" class="list-group-item list-group-item-action">
+				{{object.title}}
+			</a>
+		{% endfor %}
+
+	</div>
+
+	<style>
+		select {
+
+			padding: 10px;
+			border-radius: 10px;
+		}
+		input {
+			padding: 10px;
+			border-radius: 10px;
+			box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+		}
+		button {
+			position: absolute;
+			top: 0;
+
+			width: 100px;
+			height: 42px;
+			border: none;
+			background: #000;
+			border-radius: 0 5px 5px 0;
+			cursor: pointer;
+			color: white;
+		}
+		button:before {
+			content: "\f002";
+			font-family: FontAwesome;
+			font-size: 16px;
+			color: #F2C64D;
+		}
+	</style>
+
+{% endblock %}

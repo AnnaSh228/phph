@@ -1,0 +1,61 @@
+{% extends "__layout.twig" %}
+{% import "macro.twig" as macro %}
+{% block content %}
+
+	{% include 'navigation.html.twig' %}
+
+	{% if message %}
+		<div class="alert alert-info" style="margin-left:150px;margin-right:150px;">
+
+			{{message}}
+
+		</div>
+	{% endif %}
+
+	<div class="container" style="display: flex;">
+		<div class="col-10 d-flex">
+
+			{% for cat in cat_obj %}
+				<div class="col-1 d-flex flex-column justify-content-space-between align-items-center margin 10px">
+					<form action="/cat-object/{{cat.id}}/delete" method="POST">
+						<button type="submit" class="" btn>
+							<i class="fas fa-times"></i>
+						</button>
+					</form>
+					<a href="/cat-object/{{cat.id}}/edit">Редактирование</a>
+					<form action="/cat-object/{{cat.id}}/edit" method="POST">
+						<button type="submit" class="" btn>
+							<i class="fa-sharp fa-solid fa-wand-magic-sparkles"></i>
+						</button>
+					</form>
+					<div class="photo" style="margin:10px,   width: 100%; height: auto;">
+						<img src="{{ cat.image }}" width="100%" height="auto" alt="">
+					</div>
+					<div class="boxed-btn4" style="margin-bottom:5px, margin-top:5px">
+						{{ macro.btn( cat.title , "/cat-object/"~cat.id, true) }}
+					</div>
+					<div class="info">
+						<a href="/cat-object/{{cat.id}}?show=image">Картинка</a>
+						<a href="/cat-object/{{cat.id}}?show=info">Описание</a>
+					</div>
+				</div>
+
+			{% endfor %}
+
+
+		</div>
+		<div class="col-2 m-5 d-flex" >
+			Посещенные страницы
+			{# {{my_session_message}} #}
+			<br>
+			{% for m in history %}
+				{{m}}
+				<br>
+			{% endfor %}
+			<hr>
+		</div>
+	</div>
+
+
+	{% block objectContent %}{% endblock %}
+{% endblock %}

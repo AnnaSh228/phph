@@ -1,0 +1,25 @@
+{% extends "__layout.twig" %}
+{% import "macro.twig" as macro %}
+{% block content %}
+
+
+	{% include 'navigation.html.twig' %}
+
+
+	<div class="container">
+		<div class="row mb-2 mt-2">
+
+
+			<div class="col-1 d-flex flex-column justify-content-space-between align-items-center">
+
+				<img src="{{ cat.image }}" alt="">
+
+
+			</div>
+
+		</div>
+
+		{% block objectContent %}{% endblock %}
+
+
+	{% endblock %}
