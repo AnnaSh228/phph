@@ -6,7 +6,7 @@ class LoginController extends BaseTwigController
 	{
 		
 	$username = isset($_POST['username']) ? $_POST['username'] : '';
-	$password = isset($_POST['password ']) ? $_POST['password '] : '';
+	$password = isset($_POST['password']) ? $_POST['password'] : '';
 	$query=$this->pdo->prepare("SELECT * FROM users WHERE username=:username AND password=:password");
 	$query->bindValue("username", $username);
 	$query->bindValue("password", $password);

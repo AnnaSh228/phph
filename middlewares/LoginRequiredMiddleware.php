@@ -7,6 +7,7 @@ public function apply(BaseController $controller, array $context)
         header("Location: /login");
         exit;
     }
-         
+
+
 }
 }

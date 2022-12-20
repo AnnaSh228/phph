@@ -3,7 +3,8 @@
 
 {% block content %}
 	{% include 'navigation.html.twig' %}
-	<h1 style="margin-left:300px;">Поиск</h1>
+	<h1 style=" padding: 10px 20px;
+  			margin: 10px 20px;">Поиск</h1>
 	<form class="row gx-3 gy-2 align-items-center" style="margin-left:280px;">
 		<div class="col-sm-3">
 			<input type="text" value="{{title}}" placeholder="Введите имя">
@@ -22,7 +23,7 @@
 		</div>
 
 		<div class="col-auto">
-			<button type="submit">Найти</button>
+			<button type="submit" class="search-button">Найти</button>
 		</div>
 
 	</form>
@@ -39,32 +40,20 @@
 	<style>
 		select {
 
-			padding: 10px;
-			border-radius: 10px;
-		}
-		input {
-			padding: 10px;
+			
 			border-radius: 10px;
 			box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+			 padding: 10px 20px;
+  			margin: 10px 20px;
 		}
-		button {
-			position: absolute;
-			top: 0;
-
-			width: 100px;
-			height: 42px;
-			border: none;
-			background: #000;
-			border-radius: 0 5px 5px 0;
-			cursor: pointer;
-			color: white;
+		input {
+			
+			border-radius: 10px;
+			box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+			 padding: 10px 20px;
+  			margin: 10px 20px;
 		}
-		button:before {
-			content: "\f002";
-			font-family: FontAwesome;
-			font-size: 16px;
-			color: #F2C64D;
-		}
+		
 	</style>
 
 {% endblock %}
